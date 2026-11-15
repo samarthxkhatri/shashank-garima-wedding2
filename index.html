@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shashank & Garima – Wedding Invitation</title>
+<meta name="description" content="10 – 13 December 2026, Indore">
+<meta name="theme-color" content="#4a6580">
+<meta property="og:title" content="You’re invited to Shashank & Garima’s wedding">
+<meta property="og:image" content="p1.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,500;1,500&family=Figtree:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+<div id="glow"></div>
+<canvas id="petals" aria-hidden="true"></canvas>
+
+<div id="curtain">
+  <div class="drape l"></div><div class="drape r"></div>
+  <div class="seal">
+    <p class="guest" id="guest"></p>
+    <p class="to">Together with their families</p>
+    <h1>Shashank<br><em>&amp;</em> Garima</h1>
+    <button id="open" type="button">Open the curtains</button>
+  </div>
+</div>
+
+<button id="music" type="button" aria-label="Toggle music" hidden><i></i><i></i><i></i></button>
+
+<header class="hero">
+  <div class="bg"><img src="p1.jpg" alt="Shashank and Garima sharing a joyful moment"></div>
+  <div class="txt">
+    <p class="kicker">are getting married</p>
+    <h2 data-split>Shashank &amp; Garima</h2>
+    <p class="when">10 – 13 December 2026, Indore</p>
+  </div>
+</header>
+
+<section id="countdown">
+  <div class="wrap">
+    <h2>Counting down to the celebrations</h2>
+    <div class="units">
+      <div><b id="days">00</b><span>days</span></div>
+      <div><b id="hours">00</b><span>hours</span></div>
+      <div><b id="mins">00</b><span>minutes</span></div>
+      <div><b id="secs">00</b><span>seconds</span></div>
+    </div>
+    <button id="cal" class="btn" type="button">Add to calendar</button>
+  </div>
+</section>
+
+<section id="story" style="--n:5">
+  <div class="pin">
+    <div class="slide" style="--img:url(p3.jpg)"><figure><img src="p3.jpg" alt="The couple laughing together"><figcaption>It began with laughter.</figcaption></figure></div>
+    <div class="slide" style="--img:url(p6.jpg)"><figure><img src="p6.jpg" alt="A quiet moment together"><figcaption>It grew into love.</figcaption></figure></div>
+    <div class="slide" style="--img:url(p2.jpg)"><figure><img src="p2.jpg" alt="Arm in arm"><figcaption>It became a promise.</figcaption></figure></div>
+    <div class="slide" style="--img:url(p5.jpg)"><figure><img src="p5.jpg" alt="An embrace"><figcaption>Now we want you beside us.</figcaption></figure></div>
+    <div class="slide" style="--img:url(p4.jpg)"><figure><img src="p4.jpg" alt="Portrait of the couple"><figcaption>Please join us.</figcaption></figure></div>
+    <div class="bar"></div>
+  </div>
+</section>
+
+<section id="events">
+  <div class="wrap">
+    <h2>The celebrations</h2>
+    <ol class="tl" id="tl"></ol>
+  </div>
+</section>
+
+<section id="venue">
+  <div class="wrap">
+    <h2>Where to find us</h2>
+    <div class="tabs" id="tabs" role="tablist"></div>
+    <div class="grid">
+      <div>
+        <p id="vinfo"></p>
+        <a class="btn" id="dir" target="_blank" rel="noopener" href="#">Get directions</a>
+      </div>
+      <iframe id="map" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<section id="rsvp">
+  <div class="wrap narrow">
+    <h2>Will you join us?</h2>
+    <form id="rsvpForm">
+      <label>Your name<input name="n" required autocomplete="name"></label>
+      <label>Number of guests<select name="g"><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option></select></label>
+      <fieldset id="evs"></fieldset>
+      <fieldset>
+        <label><input type="radio" name="a" value="will joyfully attend" checked> Joyfully accept</label>
+        <label><input type="radio" name="a" value="will regretfully miss"> Regretfully decline</label>
+      </fieldset>
+      <button class="btn" type="submit">Send RSVP on WhatsApp</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <h2>Shashank &amp; Garima</h2>
+  <p>10 – 13 December 2026</p>
+  <p>We can’t wait to celebrate with you.</p>
+  <button id="share" class="btn" type="button">Share this invitation</button>
+</footer>
+
+<audio id="song" loop preload="none" src="song.mp3"></audio>
+<script src="main.js"></script>
+</body>
+</html>
