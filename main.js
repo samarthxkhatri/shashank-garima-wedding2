@@ -63,25 +63,48 @@ $('#cal').onclick = () => {
   a.download = 'shashank-garima-wedding.ics'; a.click();
 };
 
-// scroll-driven photo story
-const story = $('#story'), slides = $$('.slide'), n = slides.length, bar = $('.bar');
-function onScroll() {
-  const r = story.getBoundingClientRect();
-  const p = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight))), t = p * n;
-  slides.forEach((s, i) => {
-    let d = t - i - .5;
-    if (i === 0) d = Math.max(d, 0);
-    if (i === n - 1) d = Math.min(d, 0);
-    const v = Math.min(1, Math.max(0, 1 - (Math.abs(d) - .25) * 4));
-    s.style.opacity = v; s.style.visibility = v ? 'visible' : 'hidden';
-    if (!calm) s.querySelector('img').style.transform = `scale(${1.08 - d * .08}) translateY(${d * -26}px)`;
+// photo carousel
+const slides = $$('#photoSlides .slide'), dots = $('#photoDots'), photoCount = $('#photoCount');
+let currentSlide = 0, slideshowPaused = calm;
+function showSlide(index) {
+  currentSlide = (index + slides.length) % slides.length;
+  slides.forEach((slide, i) => {
+    const active = i === currentSlide;
+    slide.hidden = !active;
+    slide.setAttribute('role', 'group');
+    slide.setAttribute('aria-roledescription', 'slide');
+    slide.setAttribute('aria-label', `${i + 1} of ${slides.length}`);
+    slide.setAttribute('aria-hidden', String(!active));
+    dots.children[i].setAttribute('aria-current', String(active));
   });
-  bar.style.transform = `scaleX(${p})`;
+  photoCount.textContent = `${currentSlide + 1} / ${slides.length}`;
+}
+dots.innerHTML = slides.map((_, i) => `<button type="button" aria-label="Show photo ${i + 1}" aria-current="false"></button>`).join('');
+$('#photoPrev').onclick = () => showSlide(currentSlide - 1);
+$('#photoNext').onclick = () => showSlide(currentSlide + 1);
+dots.onclick = e => {
+  const button = e.target.closest('button');
+  if (button) showSlide([...dots.children].indexOf(button));
+};
+$('#photoPause').hidden = calm;
+$('#photoPause').onclick = e => {
+  slideshowPaused = !slideshowPaused;
+  e.currentTarget.textContent = slideshowPaused ? 'Play slideshow' : 'Pause slideshow';
+};
+showSlide(0);
+setInterval(() => {
+  if (!slideshowPaused && !document.hidden) showSlide(currentSlide + 1);
+}, 5000);
+
+function updateTimelineDraw() {
   const tl = $('#tl').getBoundingClientRect();
   $('#tl').style.setProperty('--draw', Math.min(1, Math.max(0, (innerHeight * .8 - tl.top) / tl.height)));
 }
-let raf; addEventListener('scroll', () => { cancelAnimationFrame(raf); raf = requestAnimationFrame(onScroll); }, { passive: true });
-onScroll();
+let raf; addEventListener('scroll', () => {
+  cancelAnimationFrame(raf);
+  raf = requestAnimationFrame(updateTimelineDraw);
+}, { passive: true });
+updateTimelineDraw();
 
 // timeline + venue
 const V = CONFIG.venues, vk = Object.keys(V);

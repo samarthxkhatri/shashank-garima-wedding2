@@ -51,14 +51,26 @@
   </div>
 </section>
 
-<section id="story" style="--n:5">
-  <div class="pin">
-    <div class="slide" style="--img:url(p3.jpg)"><figure><img src="p3.jpg" alt="The couple laughing together"><figcaption>It began with laughter.</figcaption></figure></div>
-    <div class="slide" style="--img:url(p6.jpg)"><figure><img src="p6.jpg" alt="A quiet moment together"><figcaption>It grew into love.</figcaption></figure></div>
-    <div class="slide" style="--img:url(p2.jpg)"><figure><img src="p2.jpg" alt="Arm in arm"><figcaption>It became a promise.</figcaption></figure></div>
-    <div class="slide" style="--img:url(p5.jpg)"><figure><img src="p5.jpg" alt="An embrace"><figcaption>Now we want you beside us.</figcaption></figure></div>
-    <div class="slide" style="--img:url(p4.jpg)"><figure><img src="p4.jpg" alt="Portrait of the couple"><figcaption>Please join us.</figcaption></figure></div>
-    <div class="bar"></div>
+<section id="story">
+  <div class="wrap">
+    <h2>Our story</h2>
+    <div class="carousel" role="region" aria-label="Photos of Shashank and Garima">
+      <div class="carousel-stage" id="photoSlides">
+        <div class="slide"><figure><img src="p3.jpg" alt="The couple laughing together"><figcaption>It began with laughter.</figcaption></figure></div>
+        <div class="slide" hidden><figure><img src="p6.jpg" alt="A quiet moment together"><figcaption>It grew into love.</figcaption></figure></div>
+        <div class="slide" hidden><figure><img src="p2.jpg" alt="The couple arm in arm"><figcaption>It became a promise.</figcaption></figure></div>
+        <div class="slide" hidden><figure><img src="p5.jpg" alt="The couple embracing"><figcaption>Now we want you beside us.</figcaption></figure></div>
+        <div class="slide" hidden><figure><img src="p4.jpg" alt="Portrait of the couple"><figcaption>Please join us.</figcaption></figure></div>
+      </div>
+      <div class="carousel-controls">
+        <button class="carousel-arrow" id="photoPrev" type="button" aria-label="Previous photo">‹</button>
+        <span id="photoCount" aria-live="polite"></span>
+        <button class="carousel-arrow" id="photoNext" type="button" aria-label="Next photo">›</button>
+        <button class="carousel-pause" id="photoPause" type="button">Pause slideshow</button>
+      </div>
+      <div class="carousel-dots" id="photoDots" aria-label="Choose a photo"></div>
+    </div>
+    <a class="btn story-next" href="#events">Explore the celebrations ↓</a>
   </div>
 </section>
 
