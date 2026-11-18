@@ -11,8 +11,8 @@ const CONFIG = {
   events: [
     { name: 'Mata Poojan', date: 'Thursday, 10 December', time: '10:00 AM', venue: 'sawariya', note: 'An auspicious beginning, with blessings.', ics: ['20261210T100000', '20261210T120000'] },
     { name: 'Sangeet',     date: 'Thursday, 10 December', time: '7:00 PM',  venue: 'sawariya', note: 'An evening of music, dance and joy.',     ics: ['20261210T190000', '20261210T230000'] },
-    { name: 'Wedding Ceremony', date: 'Friday, 11 December', time: '3:00 AM', venue: 'milan', note: 'Join us as we celebrate the wedding of Shashank and Garima.', ics: ['20261211T030000', '20261211T060000'] },
     { name: 'Baarat',     date: 'Friday, 11 December', time: '4:00 PM',  venue: 'milan',    note: 'Come celebrate and join the baarat.', ics: ['20261211T160000', '20261211T190000'] },
+    { name: 'Wedding Ceremony', date: 'Friday, 11 December', time: '3:00 AM', venue: 'milan', note: 'Join us as we celebrate the wedding of Shashank and Garima.', ics: ['20261211T030000', '20261211T060000'] },
     { name: 'Reception',   date: 'Sunday, 13 December',   time: '7:00 PM',  venue: 'step7',    note: 'An evening to celebrate together.',      ics: ['20261213T190000', '20261213T230000'] }
   ]
 };
