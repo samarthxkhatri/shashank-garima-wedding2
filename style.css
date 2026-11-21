@@ -106,13 +106,8 @@ footer h2{font-style:italic;margin-bottom:.6rem}
 /* extras */
 .guest{font:italic 1.3rem var(--serif);color:var(--peach);margin-bottom:.6rem}
 .narrow{max-width:34rem}
-#rsvp{background:var(--peach-l)}
-#rsvp form{display:grid;gap:1.1rem}
-#rsvp label{display:grid;gap:.3rem;font-weight:600}
-#rsvp input:not([type=radio]),#rsvp select{font:inherit;padding:.8rem 1rem;border:2px solid var(--blue);border-radius:12px;background:var(--white);color:var(--ink)}
-#rsvp fieldset{border:0;display:grid;gap:.5rem}
-#rsvp fieldset label{display:flex;gap:.6rem;align-items:center;font-weight:400}
-footer .btn{margin-top:1.6rem;background:var(--peach);color:var(--ink)}
+#expecting{background:var(--peach-l);text-align:center}
+#expecting h2{margin-bottom:0}
 .heart{position:fixed;z-index:70;color:var(--peach);pointer-events:none;font-size:1.6rem;transform:translate(-50%,-50%);animation:up 1.4s forwards}
 @keyframes up{to{transform:translate(-50%,-260%) scale(1.6);opacity:0}}
 
@@ -121,7 +116,6 @@ footer .btn{margin-top:1.6rem;background:var(--peach);color:var(--ink)}
 .tabs button{font:600 .95rem var(--sans);min-height:44px;padding:0 1.2rem;border-radius:99px;border:2px solid var(--peach);background:transparent;color:var(--peach-l);cursor:pointer}
 .tabs button[aria-selected=true]{background:var(--peach);color:var(--ink)}
 .loc{display:inline-block;margin-top:.5rem;color:var(--deep);font-weight:600}
-#rsvp legend{font-weight:600;margin-bottom:.4rem}
 @media (max-width:720px){
   .carousel-stage{min-height:0}
   .slide figure{height:70svh;min-height:24rem;width:min(88vw,28rem)}

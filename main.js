@@ -2,7 +2,6 @@
 const CONFIG = {
   date: '2026-12-10T10:00:00+05:30',            // countdown target (first event)
   families: '',                                  // optional blessing line, e.g. 'With the blessings of the Sharma and Verma families'
-  whatsapp: '',                                  // optional RSVP number with country code, e.g. '919876543210'
   venues: {
     sawariya: { name: 'Sawariya Palace', addr: 'Cat Road, Indore', q: 'Sawariya Palace, Cat Road, Indore' },
     step7:    { name: '7 Step Garden',   addr: 'Hawa Bangla, Cat Road, Indore', q: '7 Step Garden, Hawa Bangla, Cat Road, Indore' },
@@ -109,7 +108,6 @@ updateTimelineDraw();
 // timeline + venue
 const V = CONFIG.venues, vk = Object.keys(V);
 $('#tl').innerHTML = CONFIG.events.map(e => `<li class="rv"><time>${e.date}<small>${e.time}</small></time><div><h3>${e.name}</h3><p>${e.note}</p><a class="loc" href="#venue" data-v="${e.venue}">${V[e.venue].name}, ${V[e.venue].addr}</a></div></li>`).join('');
-$('#evs').innerHTML = '<legend>I’ll be at</legend>' + CONFIG.events.map(e => `<label><input type="checkbox" name="e" value="${e.name}" checked> ${e.name}</label>`).join('');
 function showVenue(k) {
   const v = V[k], q = encodeURIComponent(v.q);
   $$('#tabs button').forEach(b => b.setAttribute('aria-selected', b.dataset.v === k));
@@ -154,20 +152,6 @@ if (!calm) {
 const to = new URLSearchParams(location.search).get('to');
 if (to) $('#guest').textContent = 'Dear ' + to.slice(0, 40);
 if (CONFIG.families) $('.to').textContent = CONFIG.families;
-
-// RSVP via WhatsApp
-$('#rsvpForm').onsubmit = e => {
-  e.preventDefault(); const f = new FormData(e.target);
-  const msg = `Hello! This is ${f.get('n')}. I ${f.get('a')} the celebrations of Shashank & Garima (${f.getAll('e').join(', ') || 'no events selected'}). Guests: ${f.get('g')}.`;
-  window.open('https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(msg), '_blank');
-};
-
-// share
-$('#share').onclick = () => {
-  const d = { title: 'Shashank & Garima’s Wedding', text: 'You’re invited! 10 – 13 December 2026', url: location.href.split('?')[0] };
-  if (navigator.share) navigator.share(d).catch(() => {});
-  else navigator.clipboard.writeText(d.url).then(() => { $('#share').textContent = 'Link copied'; });
-};
 
 // 3D tilt on photos, magnetic buttons, tap hearts
 if (!calm && matchMedia('(hover:hover)').matches) {
