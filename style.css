@@ -106,8 +106,9 @@ footer h2{font-style:italic;margin-bottom:.6rem}
 /* extras */
 .guest{font:italic 1.3rem var(--serif);color:var(--peach);margin-bottom:.6rem}
 .narrow{max-width:34rem}
-#expecting{background:var(--peach-l);text-align:center}
-#expecting h2{margin-bottom:0}
+#expecting{background:var(--peach-l);text-align:center;padding:clamp(3.5rem,9vw,6rem) 6vw}
+#expecting h2{max-width:42rem;margin:0 auto;font-size:clamp(1.8rem,4vw,2.8rem);font-style:italic;color:var(--deep)}
+#expecting h2::before{content:"";display:block;width:3rem;margin:0 auto 1.5rem;border-top:2px solid var(--peach)}
 .heart{position:fixed;z-index:70;color:var(--peach);pointer-events:none;font-size:1.6rem;transform:translate(-50%,-50%);animation:up 1.4s forwards}
 @keyframes up{to{transform:translate(-50%,-260%) scale(1.6);opacity:0}}
 
